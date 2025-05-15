@@ -1,0 +1,4 @@
+com\exemplo\handler\ProdutoHandler.class
+com\exemplo\model\Produto.class
+com\exemplo\repository\ProdutoRepository.class
+com\exemplo\service\ProdutoService.class

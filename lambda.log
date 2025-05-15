@@ -1,0 +1,11 @@
+START RequestId: ce9eb338-90cc-4411-81b3-f71cf2d9c94f Version: $LATEST
+Class not found: org.springframework.cloud.function.adapter.aws.FunctionInvoker: java.lang.ClassNotFoundException
+java.lang.ClassNotFoundException: org.springframework.cloud.function.adapter.aws.FunctionInvoker
+	at java.base/java.net.URLClassLoader.findClass(Unknown Source)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.base/java.lang.ClassLoader.loadClass(Unknown Source)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Unknown Source)
+
+END RequestId: ce9eb338-90cc-4411-81b3-f71cf2d9c94f
+REPORT RequestId: ce9eb338-90cc-4411-81b3-f71cf2d9c94f	Duration: 3.14 ms	Billed Duration: 4 ms	Memory Size: 128 MB	Max Memory Used: 128 MB	

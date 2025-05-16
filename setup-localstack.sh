@@ -99,6 +99,24 @@ for M in GET POST; do
       --uri "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:$LAMBDA_NAME/invocations"
 done
 
+# Recurso /produtos/{id}
+PROD_ID_PARAM=$(aws --endpoint-url=$LS apigateway create-resource \
+    --rest-api-id $API_REST_ID --parent-id $PROD_ID \
+    --path-part '{id}' --query 'id' --output text)
+
+# Métodos GET e DELETE para /produtos/{id}
+for M in GET DELETE; do
+  aws --endpoint-url=$LS apigateway put-method \
+      --rest-api-id $API_REST_ID --resource-id $PROD_ID_PARAM \
+      --http-method $M --authorization-type NONE
+  aws --endpoint-url=$LS apigateway put-integration \
+      --rest-api-id $API_REST_ID --resource-id $PROD_ID_PARAM \
+      --http-method $M --type AWS_PROXY \
+      --integration-http-method POST \
+      --uri "arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:000000000000:function:$LAMBDA_NAME/invocations"
+done
+
+
 # deploy final
 aws --endpoint-url=$LS apigateway create-deployment \
     --rest-api-id $API_REST_ID --stage-name $STAGE

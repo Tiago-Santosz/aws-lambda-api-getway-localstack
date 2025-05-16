@@ -1,1 +1,1 @@
-{"headers":{"Content-Type":"application/json"},"body":"[]","statusCode":200}
+{"headers":{"Content-Type":"application/json"},"body":"[{\"id\":\"001\",\"nome\":\"Teclado Mecânico Kumara Redragon\",\"preco\":199.9}]","statusCode":200}
